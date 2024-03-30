@@ -77,7 +77,7 @@ export default function AdView() {
             </div>
             <h1>{ad.address}</h1>
             <AdFeatures ad={ad} />
-            <h3 className="mt-3 h2">${formatNumber(ad.price)}</h3>
+            <h3 className="mt-3 h2">₹{formatNumber(ad.price)}</h3>
             <p className="text-muted">{dayjs(ad?.createdAt).fromNow()}</p>
           </div>
 
