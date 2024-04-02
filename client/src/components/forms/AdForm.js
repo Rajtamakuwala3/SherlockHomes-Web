@@ -132,7 +132,7 @@ export default function AdForm({ action, type }) {
       <input
         type="text"
         className="form-control mb-3"
-        placeholder="Size of land*"
+        placeholder="Size of land (In sq ft.)*"
         value={ad.landsize}
         onChange={(e) => setAd({ ...ad, landsize: e.target.value })}
       />

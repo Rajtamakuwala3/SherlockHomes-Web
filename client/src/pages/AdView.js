@@ -11,6 +11,7 @@ import MapCard from "../components/cards/MapCard";
 import HTMLRenderer from "react-html-renderer";
 import AdCard from "../components/cards/AdCard";
 import ContactSeller from "../components/forms/ContactSeller";
+// import AdCreate from "./user/ad/AdCreate";
 
 import relativeTime from "dayjs/plugin/relativeTime";
 
@@ -77,7 +78,7 @@ export default function AdView() {
             </div>
             <h1>{ad.address}</h1>
             <AdFeatures ad={ad} />
-            <h3 className="mt-3 h2">₹{formatNumber(ad.price)}</h3>
+            <h3 className="mt-3 h2">₹{formatNumber(ad.price)} {ad?.action == "Rent" ? "per month" : ""}</h3>
             <p className="text-muted">{dayjs(ad?.createdAt).fromNow()}</p>
           </div>
 
@@ -95,12 +96,12 @@ export default function AdView() {
             <br />
 
             <h1>
-              {ad?.type} in {ad?.address} for {ad?.action} ${ad?.price}
+              {ad?.type} in {ad?.address} for {ad?.action} ₹{ad?.price}
             </h1>
 
             <AdFeatures ad={ad} />
 
-            <hr />
+            <hr/>
 
             <h3 className="fw-bold">{ad?.title}</h3>
 

@@ -23,7 +23,7 @@ export default function AdFeatures({ ad }) {
 
       {ad?.landsize ? (
         <span>
-          <BiArea /> {ad?.landsize}
+          <BiArea /> {ad?.landsize} sq ft.
         </span>
       ) : (
         ""
