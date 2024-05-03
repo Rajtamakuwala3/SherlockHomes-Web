@@ -26,7 +26,7 @@ export default function Buy() {
 
   return (
     <div>
-      <SearchForm />
+      {/* <SearchForm /> */}
       {/* <h1 className="display-1 bg-primary text-light p-5">For Sell</h1> */}
       <div
         className="position-relative"

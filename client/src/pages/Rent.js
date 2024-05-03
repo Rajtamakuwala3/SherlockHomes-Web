@@ -28,7 +28,7 @@ export default function Rent() {
 
   return (
     <div>
-      <SearchForm />
+      {/* <SearchForm /> */}
       <div
         className="position-relative"
         style={{

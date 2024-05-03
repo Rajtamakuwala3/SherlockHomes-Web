@@ -5,6 +5,7 @@ import Ad from "../models/ad.js";
 import User from "../models/user.js";
 import { emailTemplate } from "../helpers/email.js";
 
+
 export const uploadImage = async (req, res) => {
   try {
     // console.log(req.body);
@@ -265,7 +266,7 @@ export const userAds = async (req, res) => {
 
 export const update = async (req, res) => {
   try {
-    const { photos, price, type, address, description } = req.body;
+    const { photos, price, type, address, description , sold} = req.body;
 
     const ad = await Ad.findById(req.params._id);
 
@@ -392,7 +393,7 @@ export const search = async (req, res) => {
       },
       location: {
         $near: {
-          $maxDistance: 50000, // 1000m = 1km
+          $maxDistance: 100000, // 1000m = 1km
           $geometry: {
             type: "Point",
             coordinates: [geo?.[0]?.longitude, geo?.[0]?.latitude],
@@ -411,3 +412,4 @@ export const search = async (req, res) => {
     console.log();
   }
 };
+

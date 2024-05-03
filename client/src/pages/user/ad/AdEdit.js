@@ -8,6 +8,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import Sidebar from "../../../components/nav/Sidebar";
 import bgvideo from "../../../images/realvideo.mp4";
+import bedroom from "../../../images/bedroom.png";
+import price from "../../../images/price.png";
+import bathroom from "../../../images/bathroom.png";
+import carpark from "../../../images/parking.png";
+import title from "../../../images/title.png";
+import description from "../../../images/description.png";
+import size from "../../../images/size.png";
 
 export default function AdEdit({ action, type }) {
   // state
@@ -38,6 +45,10 @@ export default function AdEdit({ action, type }) {
       fetchAd();
     }
   }, [params?.slug]);
+
+  const [sold, setSold] = useState(false);
+
+  // onChange={(e) => setAd({ ...ad, sold: e.target.checked })}
 
   const fetchAd = async () => {
     try {
@@ -105,7 +116,7 @@ export default function AdEdit({ action, type }) {
 
   return (
     <div>
-       <div
+      <div
         className="position-relative"
         style={{
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Text shadow effect
@@ -161,6 +172,7 @@ export default function AdEdit({ action, type }) {
 
         {loaded ? (
           <div style={{ marginTop: "80px" }}>
+            <img src={price} alt="Price" />
             <CurrencyInput
               placeholder="Enter price"
               defaultValue={ad.price}
@@ -174,6 +186,7 @@ export default function AdEdit({ action, type }) {
 
         {ad.type === "House" ? (
           <>
+            <img src={bedroom} alt="BedRoom" />
             <input
               type="number"
               min="0"
@@ -182,7 +195,7 @@ export default function AdEdit({ action, type }) {
               value={ad.bedrooms}
               onChange={(e) => setAd({ ...ad, bedrooms: e.target.value })}
             />
-
+            <img src={bathroom} alt="BathRoom" />
             <input
               type="number"
               min="0"
@@ -191,7 +204,7 @@ export default function AdEdit({ action, type }) {
               value={ad.bathrooms}
               onChange={(e) => setAd({ ...ad, bathrooms: e.target.value })}
             />
-
+            <img src={carpark} alt="CarParking" />
             <input
               type="number"
               min="0"
@@ -204,7 +217,7 @@ export default function AdEdit({ action, type }) {
         ) : (
           ""
         )}
-
+        <img src={size} alt="LandSize" />
         <input
           type="text"
           className="form-control mb-3"
@@ -212,7 +225,7 @@ export default function AdEdit({ action, type }) {
           value={ad.landsize}
           onChange={(e) => setAd({ ...ad, landsize: e.target.value })}
         />
-
+        <img src={title} alt="Title" />
         <input
           type="text"
           className="form-control mb-3"
@@ -220,13 +233,34 @@ export default function AdEdit({ action, type }) {
           value={ad.title}
           onChange={(e) => setAd({ ...ad, title: e.target.value })}
         />
-
+        <img src={description} alt="Description" />
         <textarea
           className="form-control mb-3"
           placeholder="Enter description"
           value={ad.description}
           onChange={(e) => setAd({ ...ad, description: e.target.value })}
         />
+
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <input
+            type="checkbox"
+            id="sold"
+            className="form-control"
+            checked={ad.sold}
+            onChange={(e) => setAd({ ...ad, sold: e.target.checked })}
+            style={{
+              marginRight: "5px",
+              width: "20px", // Adjust the width of the checkbox
+              height: "20px", // Adjust the height of the checkbox
+              accentColor: "#3b82f6", // Change the accent color (checked color)
+              borderRadius: "4px", // Add border radius if desired
+              borderColor: "#d1d5db", // Change the border color
+              boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)", // Add a box shadow if desired
+            }}
+          />
+          <label htmlFor="sold">Mark as Sold</label>
+        </div>
+        <br></br>
 
         <div className="d-flex justify-content-between">
           <button

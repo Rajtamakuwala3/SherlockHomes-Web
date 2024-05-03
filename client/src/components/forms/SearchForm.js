@@ -47,7 +47,7 @@ export default function SearchForm() {
           <div className="col-lg-12 form-control">
             <GooglePlacesAutocomplete
               apiKey={GOOGLE_PLACES_KEY}
-              apiOptions="au"
+              apiOptions="in"
               selectProps={{
                 defaultInputValue: search?.address,
                 placeholder: "Search for address..",
